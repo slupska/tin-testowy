@@ -300,20 +300,29 @@ document.getElementById("rotateBtn").addEventListener("click", () => {
         draw();
     }
 
-    // --- Blokada double-tap zoom na mobilkach ---
-let lastTouchEnd = 0;
+   // --- Blokada double-tap zoom tylko na panelu przycisków ---
+const controls = document.querySelector(".controls");
 
-document.addEventListener(
-  "touchend",
-  function (event) {
-    const now = Date.now();
-    if (now - lastTouchEnd <= 300) {
-      event.preventDefault(); // blokuje domyślne zachowanie (zoom)
-    }
-    lastTouchEnd = now;
-  },
-  { passive: false } // ważne, żeby móc użyć preventDefault
-);
+if (controls) {
+  let lastTouchTime = 0;
+
+  controls.addEventListener(
+    "touchend",
+    function (event) {
+      const now = Date.now();
+
+      // jeśli drugi tap w ciągu 300 ms → traktujemy jako double-tap i blokujemy zoom
+      if (now - lastTouchTime <= 300) {
+        event.preventDefault();
+      }
+
+      lastTouchTime = now;
+    },
+    { passive: false } // konieczne, żeby preventDefault zadziałał
+  );
+}
+
+    
 
 });
 
