@@ -299,6 +299,22 @@ document.getElementById("rotateBtn").addEventListener("click", () => {
         currentPiece.shape = rotatedShape;
         draw();
     }
+
+    // --- Blokada double-tap zoom na mobilkach ---
+let lastTouchEnd = 0;
+
+document.addEventListener(
+  "touchend",
+  function (event) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault(); // blokuje domyślne zachowanie (zoom)
+    }
+    lastTouchEnd = now;
+  },
+  { passive: false } // ważne, żeby móc użyć preventDefault
+);
+
 });
 
 // Start gry
