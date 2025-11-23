@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tetris w JavaScript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Połączenie z CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="game-wrapper">
+        <div class="game-header">
+            <div class="game-title">Tetris</div>
+            <div class="score-box">
+                Wynik: <span id="score">0</span>
+            </div>
+        </div>
+
+        <div class="canvas-wrapper">
+            <!-- 10 kolumn x 20 wierszy, blok 24px = 240x480 -->
+            <canvas id="tetris" width="240" height="480"></canvas>
+        </div>
+
+        <div class="controls">
+            <button id="leftBtn">◀ Lewo</button>
+            <button id="rotateBtn">⟳ Obróć</button>
+            <button id="rightBtn">Prawo ▶</button>
+            <button id="downBtn" class="wide">▼ Szybciej w dół</button>
+        </div>
+
+        <p class="hint">
+            Komputer: ← → ↓ ruch, ↑ obrót, Spacja = hard drop, P = pauza
+        </p>
+    </div>
+
+    <!-- Połączenie z JavaScript -->
+    <script src="tetris.js"></script>
+</body>
+
+</html>
