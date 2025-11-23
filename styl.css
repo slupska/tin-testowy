@@ -75,10 +75,10 @@ canvas {
 }
 
 .controls button {
-    padding: 10px 8px;
+    padding: 16px 12px;
     border-radius: 999px;
     border: none;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 600;
     background: #111827;
     color: #e5e7eb;
